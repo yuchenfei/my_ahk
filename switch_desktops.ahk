@@ -1,3 +1,5 @@
+; Switch Windows 10's virtual desktops
+
 $ctrl::
     if ctrl_counter > 0
     {
