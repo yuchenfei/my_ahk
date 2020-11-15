@@ -1,56 +1,163 @@
-; Run script as admin
-if not A_IsAdmin
-{
-    Run *RunAs "%A_ScriptFullPath%"
-    ExitApp
-}
+#Persistent
 
-; Set startup link, requires admin
-startup_link := A_StartupCommon . "\my_ahk.lnk"
-IfExist, %startup_link%
-{
-    FileGetShortcut, %startup_link%, target_file  ; Get target file path
-    if(A_ScriptFullPath != target_file){  ; If not equal, rebuild the link
-        FileCreateShortcut, %A_ScriptFullPath%, %startup_link%, %A_WorkingDir%
+global is_caps_down, caps_flag
+
+#Include hotstring.ahk
+#Include switch_desktops.ahk
+
+CapsLock::
+    is_caps_down := caps_flag := 1
+
+    KeyWait, CapsLock  ; Waits for Caps key to be released
+    is_caps_down := ""
+
+    if(caps_flag){  ; Caps is not used
+        ; Toggle the state of the Caps key
+        SetCapsLockState, % GetKeyState("CapsLock", "T") ? "Off" : "On"
     }
-}else{  ; Create startup link
-    FileCreateShortcut, %A_ScriptFullPath%, %startup_link%, %A_WorkingDir%
+    return
+
+#If is_caps_down
+    a::
+    b::
+    c::
+    d::
+    e::
+    f::
+    g::
+    h::
+    i::
+    j::
+    k::
+    l::
+    n::
+    m::
+    o::
+    p::
+    q::
+    r::
+    s::
+    t::
+    u::
+    v::
+    w::
+    x::
+    y::
+    z::
+    1::
+    2::
+    3::
+    4::
+    5::
+    6::
+    7::
+    8::
+    9::
+    0::
+    esc::
+    tab::
+    space::
+    backspace::
+    enter::
+        try
+            func_name := "caps_" . A_ThisHotkey
+            %func_name%()
+        caps_flag := ""
+        return
+    -::
+        caps_flag := ""
+        return
+    =::
+        caps_flag := ""
+        return
+    [::
+        caps_flag := ""
+        return
+    ]::
+        caps_flag := ""
+        return
+    \::
+        caps_flag := ""
+        return
+    `;::
+        caps_flag := ""
+        return
+    '::
+        caps_flag := ""
+        return
+    ,::
+        caps_flag := ""
+        return
+    .::
+        caps_flag := ""
+        return
+    /::
+        caps_flag := ""
+        return
+#If
+
+
+caps_test(){
+    MsgBox, , , testing, 1
+    return
 }
 
-main:
-    global is_caps_down, caps_flag
+; Caps + e/d/s/f => ↑/↓/←/→
+caps_e(){
+    SendInput, {Up}
+    return
+}
 
-    CapsLock::  ; Caps key down
-        is_caps_down := caps_flag := 1
-        KeyWait, CapsLock  ; Waits for Caps key to be released
-        is_caps_down := 0
-        If(caps_flag){  ; caps_flag equal to 1 means Caps is not used
-            SetCapsLockState, % GetKeyState("CapsLock","T") ? "Off" : "On"  ; Toggle the state of the Caps key
-        }
-        Return
+caps_d(){
+    SendInput, {Down}
+    return
+}
 
-    #If, is_caps_down  ; if Caps key down and hold
-    ; Caps + e/d/s/f => ↑/↓/←/→
-    e::
-        SendInput, {Up}
-        caps_flag := 0
-        Return
-    d::
-        SendInput, {Down}
-        caps_flag := 0
-        Return
-    s::
-        SendInput, {Left}
-        caps_flag := 0
-        Return
-    f::
-        SendInput, {Right}
-        caps_flag := 0
-        Return
-    ; Caps + l => Listary
-    q::
-        Send, !l  ; My Listary shortcut is Alt + L
-        caps_flag:=0
-        Return
+caps_s(){
+    SendInput, {Left}
+    return
+}
 
-    Return
+caps_f(){
+    SendInput, {Right}
+    return
+}
+
+; Caps + a/g => move word left/right
+caps_a(){
+    SendInput, ^{Left}
+    return
+}
+
+caps_g(){
+    SendInput, ^{Right}
+    return
+}
+
+; Caps + w/r => backspace/delete
+caps_w(){
+    SendInput, {BackSpace}
+    return
+}
+
+caps_r(){
+    SendInput, {Delete}
+    return
+}
+
+; Caps + space/enter => enter/end enter
+caps_space(){
+    SendInput, {Enter}
+    return
+}
+
+caps_enter(){
+    SendInput, {End}{Enter}
+    return
+}
+
+; Caps + q => uTools
+caps_q(){
+    SendInput, !{Space}
+    return
+}
