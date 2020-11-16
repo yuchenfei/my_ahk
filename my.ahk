@@ -1,18 +1,17 @@
-#Persistent
+#SingleInstance force
+#InstallKeybdHook
 
-global is_caps_down
+SetStoreCapslockMode, Off
 
+#Include lib
 #Include hotstring.ahk
 #Include switch_desktops.ahk
 
-CapsLock::
-    is_caps_down := 1
 
-    KeyWait, CapsLock  ; Waits for Caps key to be released
-    is_caps_down := ""
-    return
+; Disable original Caps function
+CapsLock::return
 
-#If is_caps_down
+#If GetKeyState("CapsLock", "P") && !GetKeyState("Tab", "P")
     ; Caps + e/d/s/f => ↑/↓/←/→
     e::SendInput {Up}
     d::SendInput {Down}
@@ -59,7 +58,6 @@ CapsLock::
     q:: SendInput !{Space}
 #If
 
-caps_test(){
-    MsgBox, , , testing, 1
-    return
-}
+#If GetKeyState("CapsLock", "P")
+    tab::CapsTab()
+#If

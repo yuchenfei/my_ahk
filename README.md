@@ -2,7 +2,7 @@
 
 my AutoHotkey script.
 
-Keyboard: ikbc poker pro
+Keyboard: ikbc poker pro (61 Keys)
 
 ## Key Map
 
@@ -38,3 +38,9 @@ Disable original `Caps` function. Can use `Shift`/`Ctrl`/`Alt` + `Caps` instead.
 | Key          | Function |
 | ------------ | -------- |
 | `Caps` + `q` | uTools   |
+
+## Hotstring
+
+Select text, `Caps` + `Tab` : Create a new hotstring, need to type an abbreviation.
+
+Abbreviation, `Caps` + `Tab` : Abbreviations will be replaced by hotstring.
