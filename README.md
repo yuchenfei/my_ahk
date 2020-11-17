@@ -10,19 +10,21 @@ Disable original `Caps` function. Can use `Shift`/`Ctrl`/`Alt` + `Caps` instead.
 
 ### Basic
 
-| Key                      | Function                |
-| ------------------------ | ----------------------- |
-| `Caps` + `e`/`d`/`s`/`f` | ↑/↓/←/→                 |
-| `Caps` + `a`/`g`         | word left/right         |
-| `Caps` + `w`/`r`         | `backspace`/`delete`    |
-| `Caps` + `space`/`enter` | `enter`/`end` + `enter` |
+| Key                       | Function                |
+| ------------------------- | ----------------------- |
+| `Caps` + `E`/`D`/`S`/`FF` | ↑/↓/←/→                 |
+| `Caps` + `A`/`G`          | word left/right         |
+| `Caps` + `W`/`R`          | `Backspace`/`Delete`    |
+| `Caps` + `X`/`C`/`V`      | `Ctrl` + `X`/`C`/`V`    |
+| `Caps` + `T`/`B`          | move up/down 10 lines   |
+| `Caps` + `Space`/`Enter`  | `Enter`/`End` + `Enter` |
 
 
 ### Keyboard Support
 
 | key                             | Function             |
 | ------------------------------- | -------------------- |
-| `Caps` + `ESC`                  | `~`                  |
+| `Caps` + `Esc`                  | `~`                  |
 | `Caps` + 1234567890-=           | `F1`-`F12`           |
 | `Caps` + `Shift` + 1234567890-= | `Shift` + `F1`-`F12` |
 
@@ -37,7 +39,7 @@ Disable original `Caps` function. Can use `Shift`/`Ctrl`/`Alt` + `Caps` instead.
 
 | Key          | Function |
 | ------------ | -------- |
-| `Caps` + `q` | uTools   |
+| `Caps` + `Q` | uTools   |
 
 ## Hotstring
 

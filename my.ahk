@@ -12,22 +12,29 @@ SetStoreCapslockMode, Off
 CapsLock::return
 
 #If GetKeyState("CapsLock", "P") && !GetKeyState("Tab", "P")
-    ; Caps + e/d/s/f => ↑/↓/←/→
-    e::SendInput {Up}
-    d::SendInput {Down}
-    s::SendInput {Left}
-    f::SendInput {Right}
-    ; Caps + a/g => move word left/right
-    a::SendInput ^{Left}
-    g::SendInput ^{Right}
-    ; Caps + w/r => backspace/delete
-    w::SendInput {BackSpace}
-    r::SendInput {Delete}
-    ; Caps + space/enter => enter/end enter
-    space:: SendInput {Enter}
-    enter:: SendInput {End}{Enter}
+    ; Caps + E/D/S/F => ↑/↓/←/→
+    E::SendInput {Up}
+    D::SendInput {Down}
+    S::SendInput {Left}
+    F::SendInput {Right}
+    ; Caps + A/G => move word left/right
+    A::SendInput ^{Left}
+    G::SendInput ^{Right}
+    ; Caps + W/R => Backspace/Delete
+    W::SendInput {BackSpace}
+    R::SendInput {Delete}
+    ; Caps + X/C/V => Ctrl + X/C/V
+    X::SendInput ^{x}
+    C::SendInput ^{c}
+    V::SendInput ^{v}
+    ; Caps + T/B => move up/down 10 lines
+    T::SendInput {Up 10}
+    B::SendInput {Down 10}
+    ; Caps + Space/Enter => Enter/End Enter
+    Space:: SendInput {Enter}
+    Enter:: SendInput {End}{Enter}
     ; Caps + esc => `
-    esc::SendInput ``
+    Esc::SendInput ``
     ; Caps + 1234567890-= => F1-12
     1::SendInput {F1}
     2::SendInput {F2}
@@ -55,9 +62,9 @@ CapsLock::return
     +-::SendInput +{F11}
     +=::SendInput +{F12}
     ; Caps + q => uTools
-    q:: SendInput !{Space}
+    Q:: SendInput !{Space}
 #If
 
 #If GetKeyState("CapsLock", "P")
-    tab::CapsTab()
+    Tab::CapsTab()
 #If
